@@ -8,7 +8,7 @@ import './Display.css'
 function Display() {
     const [usersList, setUsersList] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/getUsers').then((res) => {
+        axios.get('https://piyush-first-server.herokuapp.com/getUsers').then((res) => {
             setUsersList(res.data)
         })
     }, [])
