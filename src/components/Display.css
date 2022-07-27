@@ -1,0 +1,20 @@
+.display {
+    border-bottom: paleturquoise solid thick;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.display-container {
+    padding: 5rem;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+button:hover {
+    outline: paleturquoise 1px auto;
+}

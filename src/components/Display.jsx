@@ -1,30 +1,37 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 import Forms from './Forms'
+import './Display.css'
 
-
+// https://piyush-first-server.herokuapp.com
 function Display() {
     const [usersList, setUsersList] = useState([])
     useEffect(() => {
-        Axios.get('https://piyush-first-server.herokuapp.com/getUsers').then((res) => {
+        axios.get('http://localhost:5000/getUsers').then((res) => {
             setUsersList(res.data)
         })
     }, [])
     return (
         <div>
-            {
-                usersList.map((user) => {
-                    return (
-                        <div>
-                            <h1>Name: {user.name}</h1>
-                            <h2>Age: {user.age}</h2>
-                            <h2>Username: {user.username}</h2>
-                        </div>
-                    )
-                })
-            }
+            <h2 style={{ 'text-align': 'center' }}>MERN APP - Piyush</h2>
             <Forms usersList={usersList} setUsersList={setUsersList} />
+            <div className="display-container">
+
+                {
+                    usersList.map((user, key) => {
+                        return (
+                            <div key={key} className='display'>
+                                <h2>Name: {user.name}</h2>
+                                <h2 style={{ 'fontStyle': 'italic' }}>Username: {user.username}</h2>
+                                <h3>Age: {user.age}</h3>
+                                <button >✏️</button>
+                                <button >X</button>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

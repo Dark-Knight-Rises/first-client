@@ -1,14 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import './Forms.css'
 
 function Forms(props) {
     const [name, setName] = useState('')
-    const [age, setage] = useState(0)
+    const [age, setage] = useState('')
     const [username, setuserName] = useState('')
 
     const createUser = () => {
-        axios.post('https://piyush-first-server.herokuapp.com/createUser', {
+        axios.post('http://localhost:5000/createUser', {
             name: name,
             age: age,
             username: username
@@ -29,11 +30,14 @@ function Forms(props) {
         setuserName('')
     }
     return (
-        <div>
-            <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="number" placeholder='age' value={age} onChange={(e) => setage(e.target.value)} />
-            <input type="text" placeholder='username' value={username} onChange={(e) => setuserName(e.target.value)} />
-            <button onClick={createUser}>Create User</button>
+        <div className='form--container'>
+            <div className='form'>
+
+                <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="number" placeholder='age' id='age--input' value={age} onChange={(e) => setage(e.target.value)} />
+                <input type="text" placeholder='username' value={username} onChange={(e) => setuserName(e.target.value)} />
+                <button onClick={createUser}>Create User</button>
+            </div>
         </div>
     )
 }
