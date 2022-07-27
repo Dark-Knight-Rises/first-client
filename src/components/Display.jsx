@@ -7,7 +7,7 @@ import Forms from './Forms'
 function Display() {
     const [usersList, setUsersList] = useState([])
     useEffect(() => {
-        Axios.get('http://localhost:5000/getUsers').then((res) => {
+        Axios.get('https://piyush-first-server.herokuapp.com/getUsers').then((res) => {
             setUsersList(res.data)
         })
     }, [])
