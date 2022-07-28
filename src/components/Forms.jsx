@@ -10,7 +10,7 @@ function Forms(props) {
 
     // https://piyush-first-server.herokuapp.com
     const createUser = () => {
-        axios.post('http://localhost:5000/createUser', {
+        axios.post('https://piyush-first-server.herokuapp.com/createUser', {
             name: name,
             age: age,
             username: username

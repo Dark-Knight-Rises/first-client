@@ -8,13 +8,13 @@ import './Display.css'
 function Display() {
     const [usersList, setUsersList] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/getUsers').then((res) => {
+        axios.get('https://piyush-first-server.herokuapp.com/getUsers').then((res) => {
             setUsersList(res.data)
         })
     }, [usersList])
 
     const removeElement = (id) => {
-        axios.delete(`http://localhost:5000/delete/${id}`).then((res) => {
+        axios.delete(`https://piyush-first-server.herokuapp.com/${id}`).then((res) => {
             setUsersList([
                 ...usersList
             ])
@@ -25,7 +25,7 @@ function Display() {
         const newUsr = prompt('enter new username')
 
         if (newUsr !== '') {
-            axios.put('http://localhost:5000/update/', { newName: newUsr, id: id })
+            axios.put('https://piyush-first-server.herokuapp.com/update/', { newName: newUsr, id: id })
         }
     }
 
