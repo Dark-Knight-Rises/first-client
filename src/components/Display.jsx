@@ -14,7 +14,7 @@ function Display() {
     }, [usersList])
 
     const removeElement = (id) => {
-        axios.delete(`https://piyush-first-server.herokuapp.com/${id}`).then((res) => {
+        axios.delete(`https://piyush-first-server.herokuapp.com/delete/${id}`).then((res) => {
             setUsersList([
                 ...usersList
             ])
