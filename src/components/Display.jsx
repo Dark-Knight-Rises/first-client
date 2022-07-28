@@ -8,13 +8,13 @@ import './Display.css'
 function Display() {
     const [usersList, setUsersList] = useState([])
     useEffect(() => {
-        axios.get('https://piyush-first-server.herokuapp.com/getUsers').then((res) => {
+        axios.get('http://localhost:5000/getUsers').then((res) => {
             setUsersList(res.data)
         })
     }, [])
     return (
         <div>
-            <h2 style={{ 'text-align': 'center' }}>MERN APP - Piyush</h2>
+            <h2 style={{ 'text-align': 'center' }}>CRUD APP (MERN)</h2>
             <Forms usersList={usersList} setUsersList={setUsersList} />
             <div className="display-container">
 

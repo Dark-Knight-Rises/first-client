@@ -8,8 +8,9 @@ function Forms(props) {
     const [age, setage] = useState('')
     const [username, setuserName] = useState('')
 
+    // https://piyush-first-server.herokuapp.com
     const createUser = () => {
-        axios.post('https://piyush-first-server.herokuapp.com/createUser', {
+        axios.post('http://localhost:5000/createUser', {
             name: name,
             age: age,
             username: username
@@ -36,7 +37,7 @@ function Forms(props) {
                 <input type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
                 <input type="number" placeholder='age' id='age--input' value={age} onChange={(e) => setage(e.target.value)} />
                 <input type="text" placeholder='username' value={username} onChange={(e) => setuserName(e.target.value)} />
-                <button onClick={createUser}>Create User</button>
+                <button onClick={createUser} id='btn'>Create User</button>
             </div>
         </div>
     )
