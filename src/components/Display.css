@@ -1,5 +1,5 @@
 .display {
-    border-bottom: paleturquoise solid thick;
+    border-bottom: rgb(21, 7, 80) solid thick;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

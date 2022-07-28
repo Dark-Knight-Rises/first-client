@@ -30,6 +30,7 @@ function Forms(props) {
         setage('')
         setuserName('')
     }
+
     return (
         <div className='form--container'>
             <div className='form'>

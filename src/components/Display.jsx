@@ -11,7 +11,24 @@ function Display() {
         axios.get('http://localhost:5000/getUsers').then((res) => {
             setUsersList(res.data)
         })
-    }, [])
+    }, [usersList])
+
+    const removeElement = (id) => {
+        axios.delete(`http://localhost:5000/delete/${id}`).then((res) => {
+            setUsersList([
+                ...usersList
+            ])
+        })
+    }
+
+    const updateElement = (id) => {
+        const newUsr = prompt('enter new username')
+
+        if (newUsr !== '') {
+            axios.put('http://localhost:5000/update/', { newName: newUsr, id: id })
+        }
+    }
+
     return (
         <div>
             <h2 style={{ 'text-align': 'center' }}>CRUD APP (MERN)</h2>
@@ -25,8 +42,8 @@ function Display() {
                                 <h2>Name: {user.name}</h2>
                                 <h2 style={{ 'fontStyle': 'italic' }}>Username: {user.username}</h2>
                                 <h3>Age: {user.age}</h3>
-                                <button >✏️</button>
-                                <button >X</button>
+                                <button onClick={() => updateElement(user._id)}>✏️</button>
+                                <button onClick={() => removeElement(user._id)}>X</button>
                             </div>
                         )
                     })
